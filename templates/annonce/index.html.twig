@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+	<div class="img" style="flex-rap:wrap">
+		<img src="https://picsum.photos/200/300" class="card-img-top" style="width:20% " alt="...">
+		<img src="https://picsum.photos/200/300" class="card-img-top" style="width:10%; aligne-itemes-row; justify-contente" alt="...">
+		<img src="https://picsum.photos/200/300" class="card-img-top" style="width:10%" alt="...">
+	</div>
+	<div class="card-body">
+
+		<h5 class="card-title " style="text-align:center; font-size:20px">CAEN Nord secteur Clemenceau TRAM et Bus à pied maison 7 chambres prox. CHU</h5>
+		<p>8 Pièces · 
+															167 m² · 
+															Caen 14000
+		</p>
+		<p>28/03/2023 à 09:02</p>
+		<p class="card-text" style="padding:0 10px;font-size:18px">Description</p>
+		<p>CAEN, quartier Nord secteur Clemenceau, vaste maison familiale et chaleureuse de 8 pièces principales (7 chambres) et d’une superficie d’environ 167 m² habitables sur une parcelle de terrain de 740 m², comprenant:
+											- De plain pied: grand garage pour 2 à 3 voitures, pièce séparée, grande buanderie avec coin cuisine, chambre avec douche, WC séparé.
+											- Au rez-de-chaussée surélevé: Entrée avec placards et WC, cuisine, salle à manger-salon avec cheminée, 2 chambres, salle d’eau, WC</p>
+		<p>
+			454 000 €
+		</p>
+		<form class="form" style="text-align:center">
+			<div class="form-group">
+				<label for="exampleFormControlTextarea1" style="">Message</label>
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+			</div>
+			<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-send" viewbox="0 0 16 16">
+				<path d="M15.854.146a.5.5 0 0 1 .11.54l-5.819 14.547a.75.75 0 0 1-1.329.124l-3.178-4.995L.643 7.184a.75.75 0 0 1 .124-1.33L15.314.037a.5.5 0 0 1 .54.11ZM6.636 10.07l2.761 4.338L14.13 2.576 6.636 10.07Zm6.787-8.201L1.591 6.602l4.339 2.76 7.494-7.493Z"/>
+			</svg>
+		</form>
+	</div>
+</div>{% endblock %}
