@@ -254,5 +254,9 @@ class Annonce
         return $this;
     }
 
-  
+//   public function CreationDate __toString()
+//   {
+ 
+//  return $this->date;
+// }
 }

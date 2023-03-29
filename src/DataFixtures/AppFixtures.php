@@ -34,7 +34,7 @@ class AppFixtures extends Fixture
         // on crée 20 annonces avec descriptif  "aléatoires" en français
 
         $annonces = [];
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             //je creer une variable date pour le datetime immutabla
 
             $annonce = new Annonce();
@@ -58,7 +58,7 @@ class AppFixtures extends Fixture
             $annonces[] = $annonce;
         }
         $reponses=[];
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $reponse = new Reponse();
             $reponse
 
