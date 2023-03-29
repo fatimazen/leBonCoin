@@ -13,11 +13,11 @@ class AnnonceController extends AbstractController
    
 {
 
-    #[Route('/annonce/0', name: 'annonce.show')]
+    #[Route('/annonce/0', name: 'annonce_')]
     public function index(): Response
     {
         return $this->render('annonce/show.html.twig', [
-            'controller_name' => 'AnnoneController',
+            'controller_name' => 'AnnonceController',
         ]);
     }
 

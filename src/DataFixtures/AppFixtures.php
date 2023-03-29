@@ -36,7 +36,7 @@ class AppFixtures extends Fixture
         $annonces = [];
         for ($i = 0; $i < 10; $i++) {
             //je creer une variable date pour le datetime immutabla
-
+            $annonce =[];
             $annonce = new Annonce();
             $annonce
                 ->setTitle($faker->sentence(6))
