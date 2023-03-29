@@ -60,6 +60,9 @@ class Annonce
     #[ORM\ManyToMany(targetEntity: user::class, inversedBy: 'annonces')]
     private Collection $user;
 
+    #[ORM\ManyToOne(inversedBy: 'annonces')]
+    private ?Reponse $reponse = null;
+
     public function __construct()
     {
         $this->users = new ArrayCollection();
@@ -235,6 +238,18 @@ class Annonce
     public function removeUser(user $user): self
     {
         $this->user->removeElement($user);
+
+        return $this;
+    }
+
+    public function getReponse(): ?Reponse
+    {
+        return $this->reponse;
+    }
+
+    public function setReponse(?Reponse $reponse): self
+    {
+        $this->reponse = $reponse;
 
         return $this;
     }

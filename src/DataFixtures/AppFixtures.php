@@ -6,7 +6,6 @@ use Faker\Factory;
 use App\Entity\User;
 use App\Entity\Annonce;
 use App\Entity\Reponse;
-use DateTime;
 use DateTimeImmutable;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -32,14 +31,12 @@ class AppFixtures extends Fixture
             $manager->persist($user);
             $users[] = $user;
         }
-        // on crée 10 annonces avec descriptif  "aléatoires" en français
-        
+        // on crée 20 annonces avec descriptif  "aléatoires" en français
+
         $annonces = [];
         for ($i = 0; $i < 20; $i++) {
-            //je creer une variable date pour le datetime immutable
-            // $date = new \DateTime("2014-06-20 11:45 Europe/London");
-            // $immutable = DateTimeImmutable::createFromMutable($date);
-            
+            //je creer une variable date pour le datetime immutabla
+
             $annonce = new Annonce();
             $annonce
                 ->setTitle($faker->sentence(6))
@@ -50,24 +47,26 @@ class AppFixtures extends Fixture
                 ->setModificationDate(DateTimeImmutable::createFromMutable($faker->dateTime(("2014-06-20 11:45 Europe/London"))))
                 ->setCategory($faker->randomElement(['Informatique', 'Maison', 'Jardin', 'Véhicules', 'Loisirs', 'Immobilier']))
                 ->setCity($faker->city())
-                ->setDepartement($faker->departmentNumber(['30'=>'Gard']))
+                ->setDepartement($faker->departmentNumber(['30' => 'Gard']))
                 ->setZipCity($faker->postcode)
                 ->setValidity(DateTimeImmutable::createFromMutable($faker->dateTime("2014-06-20 11:45 Europe/London")))
                 ->setEtat($faker->randomElement(['neuf', 'occasion', 'reconditionné']));
-          
+
 
             $manager->persist($annonce);
             $annonces[] = $annonce;
         }
+        $reponses=[];
         for ($i = 0; $i < 20; $i++) {
             $reponse = new Reponse();
             $reponse
 
-                ->setReponse($faker->safeEmail());
-
-
+                ->setReponse($faker->text('200'))
+                ->addUser($faker->randomElement($users))
+                ->addAnnonce($faker->randomElement($annonces));
 
             $manager->persist($reponse);
+            $reponses[]= $reponse ;
         }
 
 
