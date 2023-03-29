@@ -50,8 +50,9 @@ class AppFixtures extends Fixture
                 ->setDepartement($faker->departmentNumber(['30' => 'Gard']))
                 ->setZipCity($faker->postcode)
                 ->setValidity(DateTimeImmutable::createFromMutable($faker->dateTime("2014-06-20 11:45 Europe/London")))
-                ->setEtat($faker->randomElement(['neuf', 'occasion', 'reconditionné']));
-
+                ->setEtat($faker->randomElement(['neuf', 'occasion', 'reconditionné']))
+                ->addUser($faker->randomElement($users));
+                
 
             $manager->persist($annonce);
             $annonces[] = $annonce;
