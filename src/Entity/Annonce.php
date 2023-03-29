@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AnnonceRepository;
+use DateTime;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
@@ -177,12 +179,12 @@ class Annonce
         return $this;
     }
 
-    public function getValidity(): ?string
+    public function getValidity(): ? DateTimeImmutable
     {
         return $this->validity;
     }
 
-    public function setValidity(string $validity): self
+    public function setValidity(DateTimeImmutable $validity): self
     {
         $this->validity = $validity;
 
