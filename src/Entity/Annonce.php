@@ -2,13 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\AnnonceRepository;
 use DateTime;
+use App\Entity\User;
 use DateTimeImmutable;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\AnnonceRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
 
 #[ORM\Entity(repositoryClass: AnnonceRepository::class)]
 class Annonce
@@ -52,22 +53,14 @@ class Annonce
     private ?string $etat = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $img = null;
+    private ?string $img = null;                    
 
-    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'Annonce')]
-    private Collection $users;
-
-    #[ORM\ManyToMany(targetEntity: user::class, inversedBy: 'annonces')]
-    private Collection $user;
 
     #[ORM\ManyToOne(inversedBy: 'annonces')]
     private ?Reponse $reponse = null;
 
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-        $this->user = new ArrayCollection();
-    }
+    #[ORM\ManyToOne(inversedBy: 'annonces')]
+    private ?User $user = null;
 
     public function getId(): ?int
     {
@@ -218,30 +211,6 @@ class Annonce
         return $this;
     }
 
-    /**
-     * @return Collection<int, user>
-     */
-    public function getUser(): Collection
-    {
-        return $this->user;
-    }
-
-    public function addUser(user $user): self
-    {
-        if (!$this->user->contains($user)) {
-            $this->user->add($user);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(user $user): self
-    {
-        $this->user->removeElement($user);
-
-        return $this;
-    }
-
     public function getReponse(): ?Reponse
     {
         return $this->reponse;
@@ -259,4 +228,16 @@ class Annonce
  
 //  return $this->date;
 // }
+
+public function getUser(): ?User
+{
+    return $this->user;
+}
+
+public function setUser(?User $user): self
+{
+    $this->user = $user;
+
+    return $this;
+}
 }

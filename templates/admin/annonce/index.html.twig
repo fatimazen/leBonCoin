@@ -1,0 +1,56 @@
+{% set title = "Liste des annonces" %}
+{% extends 'admin_with_table.html.twig' %}
+
+{% block actions %}
+	<a class="btn btn-success" href="{{ path('app_admin_annonce_new') }}">Ajouter</a>
+{% endblock %}
+
+
+	{% block table_content %}
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Title</th>
+				<th>Prix</th>
+				<th>Description</th>
+				<th>Creation_date</th>
+				<th>Modification_date</th>
+				<th>Category</th>
+				<th>City</th>
+				<th>Departement</th>
+				<th>Zip_city</th>
+				<th>Validity</th>
+				<th>Etat</th>
+				<th>Img</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for annonce in annonces %}
+				<tr>
+					<td>{{ annonce.id }}</td>
+					<td>{{ annonce.title }}</td>
+					<td>{{ annonce.prix }}</td>
+					<td>{{ annonce.description }}</td>
+					<td>{{ annonce.creationDate ? annonce.creationDate|date('Y-m-d') : '' }}</td>
+					<td>{{ annonce.modificationDate ? annonce.modificationDate|date('Y-m-d') : '' }}</td>
+					<td>{{ annonce.category }}</td>
+					<td>{{ annonce.city }}</td>
+					<td>{{ annonce.departement }}</td>
+					<td>{{ annonce.zipCity }}</td>
+					<td>{{ annonce.validity ? annonce.validity|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ annonce.etat }}</td>
+					<td>{{ annonce.img }}</td>
+					<td>
+
+						<a href="{{ path('app_admin_annonce_edit', {'id': annonce.id}) }}">edit</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="14">no records found</td>
+				</tr>
+			{% endfor %}
+		
+	</tbody>
+{% endblock %}

@@ -2,8 +2,8 @@
 
 
 {% block body %}
-	
-		<div class="img" style="flex-rap:wrap ; justify-contente">
+{% for annonce in annonces %}
+		<div class="img" style="flex-rap:wrap ; justify-contente ; padding-top 5Px">
 			<img src="https://picsum.photos/200/300" class="card-img-top" style="width:20% " alt="...">
 			<img src="https://picsum.photos/200/300" class="card-img-top" style="width:10%; aligne-itemes-row; justify-contente" alt="...">
 			<img src="https://picsum.photos/200/300" class="card-img-top" style="width:10%" alt="...">
@@ -23,6 +23,7 @@
 			<p>
 				454 000 €
 			</p>
+		{% endfor %} 
 			<form class="form" style="text-align:center">
 				<div class="form-group">
 					<label for="exampleFormControlTextarea1" style="">Message</label>

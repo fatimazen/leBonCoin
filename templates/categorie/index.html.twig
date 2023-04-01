@@ -1,30 +1,44 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
+	<div style="margin:30px; ">
+		<select class="form-control form-control-lg">
+			<option>catégories</option>
+		</select>
+		<select class="form-control"> 
+			<option>Que rechercher vous
+			</option>
+		</select>
+		<select class="form-control form-control-sm" >
+			<option>Toute la France</option>
+		</select>
+	</div>
 
-
-	<main class="container">
-		<div style="display-flex row">
-			<section class="row">
-				<div>
-					<h1>
-						Leboncoin</h1>
-					<P>Top catégories</p>
-				</div>
-
-				{% for annonce in annonces %}
+	<main
+		class="container">
+		{# <div style="display-flex row"> #}
+		<section class="row" style="padding:10px 10px 20px">
+			<div>
+				<h1>
+					Leboncoin</h1>
+				<h2>Top catégories</h2>
+			</div>
+			{% for annonce in annonces %}
+				<div style="color: blue; ">
 					{% if annonce.Category == null %}
-						<div class="col-12">
+						<div class="col-12 ">
 							<h2>{{annonce.Category}}</h2>
 						{% else %}
-							<div class="col-3">
-								<div class="card h-100" style="border: solid 1px ">
+							<div class="col-3 " style="">
+								<div class="card h-10" style="border: solid 1px;  margin: 10px 20px 20px; ">
 									<img class="card-img-top" src="https://picsum.photos/id/1/200/300" alt="Card image cap">
-									<div class="card-body">
-										<h3 class="card-title">{{annonce.Category}}</h3>
-										<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+									<div class="card-body" style="w">
+										<h3 class="card-title">{{annonce.title}}</h3>
+										<p class="card-text">{{annonce.category}}</p>
+										<p>{{annonce.creationDate ? annonce.creationDate|date('d/m/y') : ''}}</p>
+										<p>{{annonce.prix}}</p>
 										<a href="#" class="btn btn-primary">
-											<a href="#">voir annonce</a>
+											<a href="{{ path("app_category")}}">voir annonce</a>
 										</div>
 									</div>
 
@@ -32,13 +46,14 @@
 							{% endif %}
 						</div>
 
+					</div>
 
-					{% endfor %}
+				{% endfor %}
 
-					<div class="col-12"></div>
+				<div class="col-12"></div>
 
 
-				</section>
-			</div>
-		</main>
-	{% endblock %}
+			</section>
+		</div>
+	</main>
+{% endblock %}

@@ -51,7 +51,7 @@ class AppFixtures extends Fixture
                 ->setZipCity($faker->postcode)
                 ->setValidity(DateTimeImmutable::createFromMutable($faker->dateTime("2014-06-20 11:45 Europe/London")))
                 ->setEtat($faker->randomElement(['neuf', 'occasion', 'reconditionné']))
-                ->addUser($faker->randomElement($users));
+                ->setUser($faker->randomElement($user));
                 
 
             $manager->persist($annonce);
@@ -63,7 +63,7 @@ class AppFixtures extends Fixture
             $reponse
 
                 ->setReponse($faker->text('200'))
-                ->addUser($faker->randomElement($users))
+                ->addUser($faker->randomElement($user))
                 ->addAnnonce($faker->randomElement($annonces));
 
             $manager->persist($reponse);

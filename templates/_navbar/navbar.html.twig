@@ -1,10 +1,5 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-
-
-<nav class="navbar">
-<a href="#" class="logo">Logo</a>
+<nav class="navbar" style="background-color:#FF5733">
+<a class="logo">Leboncoin</a>
 <label for="btn" class="icon">
     <svg viewBox="0 0 100 80" width="40" height="40">
         <rect width="100" height="15"></rect>
@@ -13,7 +8,7 @@
     </svg>
 </label>
 <input type="checkbox" id="btn">
-<ul class="nav-menu">
+<ul class="nav-menu" style=" background-color:#FF5733">
     <li class="nav-item">
         <a href="#">Accueil</a>
     </li>
@@ -40,23 +35,4 @@
     </li>
 </ul>
 </nav>    
-<div class="form-group">
-		<nav class="navbar navbar-light bg-light">
-
-			<form class="form-inline">
-				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-			</form>
-		</nav>
-
-		<label for="selection">Trie: plus récentes</label>
-		<select id="selection" class="form-control">
-			<option value="">tri:plus récentes</option>
-			<option value="">tri:plus ancienne</option>
-			<option value="">tri:croissants</option>
-			<option value="">tri:dècroissants</option>
-		</select>
-	</div>
 	<section class="d-flex">
-
-		{% endblock %}

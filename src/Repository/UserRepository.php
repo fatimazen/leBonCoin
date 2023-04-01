@@ -37,6 +37,8 @@ class UserRepository extends ServiceEntityRepository
         if ($flush) {
             $this->getEntityManager()->flush();
         }
+    
+        
     }
 
 //    /**

@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonce{% endblock %}
+
+{% block body %}
+    <h1>Annonce</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ annonce.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ annonce.title }}</td>
+            </tr>
+            <tr>
+                <th>Prix</th>
+                <td>{{ annonce.prix }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ annonce.description }}</td>
+            </tr>
+            <tr>
+                <th>Creation_date</th>
+                <td>{{ annonce.creationDate ? annonce.creationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Modification_date</th>
+                <td>{{ annonce.modificationDate ? annonce.modificationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ annonce.category }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ annonce.city }}</td>
+            </tr>
+            <tr>
+                <th>Departement</th>
+                <td>{{ annonce.departement }}</td>
+            </tr>
+            <tr>
+                <th>Zip_city</th>
+                <td>{{ annonce.zipCity }}</td>
+            </tr>
+            <tr>
+                <th>Validity</th>
+                <td>{{ annonce.validity ? annonce.validity|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ annonce.etat }}</td>
+            </tr>
+            <tr>
+                <th>Img</th>
+                <td>{{ annonce.img }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_annonce_index') }}">back to list</a>
+
+    <a href="{{ path('app_admin_annonce_edit', {'id': annonce.id}) }}">edit</a>
+
+    {{ include('admin/annonce/_delete_form.html.twig') }}
+{% endblock %}

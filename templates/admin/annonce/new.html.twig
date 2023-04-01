@@ -1,0 +1,8 @@
+{% set cancel_route = "app_admin_annonce_index" %}
+{% set title = "Ajouter une annonce" %}
+{# {% extends 'admin_with_form.html.twig' %} #}
+
+
+{% block forms %}
+    {{ include('admin/annonce/new.html.twig', {'button_label': 'Enregistrer'}) }}
+{% endblock %}
